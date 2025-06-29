@@ -33,6 +33,32 @@ class Apriori:
         Set[Itemset]: A set containing all 1-itemsets that are contained in the dataset.
         """
         # TODO
+    
+Itemset = FrozenSet[str]
+Dataset = List[Itemset]
+
+# Create a simple dataset
+dataset: Dataset = [
+    frozenset({"milk", "bread", "butter"}),
+    frozenset({"bread", "butter"}),
+    frozenset({"milk", "diapers"})
+]
+
+# Create Apriori instance
+apriori = Apriori()
+
+# Call the method
+one_itemsets = apriori._generate_one_itemsets(dataset)
+
+# Print results
+print("Generated 1-itemsets:")
+for itemset in sorted(one_itemsets, key=lambda x: list(x)[0]):
+    print(itemset)
+
+
+
+
+    
 
     def _count_occurrences_of_itemsets(
         self, dataset: Dataset, itemsets: Set[Itemset]
